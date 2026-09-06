@@ -1,6 +1,6 @@
 # Abraham Guerrero's ePortfolio
 
-![App development banner](https://tech-radix.com/wp-content/uploads/2022/03/Mob-App.webp)
+![Profile Picture](https://avatars.githubusercontent.com/u/135165898?v=4)
 
 # Hello, I'm Abraham Guerrero 👋
 
