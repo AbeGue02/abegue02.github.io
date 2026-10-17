@@ -41,7 +41,7 @@ a {
 .section {
   max-width: 800px;
   margin: 0 auto;
-  padding: 56px 24px;
+  padding: 24px 24px;
 }
 
 .portrait {
@@ -81,8 +81,15 @@ a {
   color: var(--text-h);
 }
 
-.capstone-page {
+.about,
+.section {
   text-align: left;
+}
+
+.about h2,
+.section h2 {
+  text-align: center;
+  font-weight: 600;
 }
 
 .placeholder {
