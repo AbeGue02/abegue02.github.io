@@ -37,8 +37,11 @@ a {
 }
 
 .hero,
-.about {
-  padding: 80px 24px;
+.about,
+.section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 56px 24px;
 }
 
 .portrait {
@@ -61,7 +64,38 @@ a {
   background: var(--accent-bg);
 }
 
-.about {
-  max-width: 640px;
-  margin: 0 auto;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--text-h);
+}
+
+.capstone-page {
+  text-align: left;
+}
+
+.placeholder {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 8px;
 }
