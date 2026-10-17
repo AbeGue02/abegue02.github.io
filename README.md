@@ -1,22 +1,75 @@
-# Abraham Guerrero's ePortfolio
+# React + TypeScript + Vite
 
-![Profile Picture](https://avatars.githubusercontent.com/u/135165898?v=4)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# Hello, I'm Abraham Guerrero 👋
+Currently, two official plugins are available:
 
-I am a Computer Science graduate at [Southern New Hampshire Univerity](https://snhu.edu) with a specialization in Software Engineering. As a software engineer, I focus my skills on building high-performance mobile and web applications. Currently, I am building using React Native and Swift while exploring the novelty of AI engineering in these applications.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 🚀 Skills
+## React Compiler
 
-- **Programming Languages:** TypeScript, JavaScript, Swift, Python, Liquid, SQL, C++, C#, Java.
-- **Technologies:** React Native, OpenAI, Expo, React, Shopify, Django, SwiftUI, Unity, MongoDB, Node.js, RESTful APIs
-- **Core competencies:** Agile/Scrum methodologies, cross-platform development, test-driven development, full-stack development, continuous learning, scalable technologies, state management, Continuous Integration and Deployment (CI/CD).
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-[![My Skills](https://skillicons.dev/icons?i=ts,js,swift,py,cpp,cs,java,react,svg,mongodb,nodejs,django,unity,figma,github,vercel,maven,)](https://skillicons.dev)
+## Expanding the ESLint configuration
 
-## 📫 Let's Connect
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-I am actively seeking opportunities to contribute and grow as a software engineer. If you are looking for a dedicated, upbeat, and fast-learning team member, let's talk! You can connect with me on [LinkedIn](https://www.linkedin.com/in/abrahamdguerrero/).
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-Thank you for visiting my GitHub profile! I look forward to the exciting journey ahead as I continue to evolve in the world of software development.
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+
+```
+
+You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+
+```
